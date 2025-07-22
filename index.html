@@ -97,13 +97,18 @@
     </style>
 </head>
 <body>
+    
     <button id="showCardBtn" class="fancy-btn">
         Who is the stinkiest person alive?
     </button>
     <div class="container" id="stinkyCard" style="display:none;">
-        <h1>Karl The Most Stinkies Person i know</h1>
+        <h1>Karl is Stinky</h1>
         <p class="stinky">Karl has been known for his stinky adventures. Whether it's after a long day or just because, Karl always manages to bring a unique aroma wherever he goes!</p>
+<h1>Why is Karl so stinky?</h1>
+        <p class="stinky">From his questionable hygiene habits dili sya maligo, plus di pajud mang hugas, damak pajud, dawat limpyo!!!!</p>
+        <p class="stinky">But despite his odoriferous reputation, Karl remains a beloved figure in the community sa mga bahong taw. After all, who tf likes a friend that doesnt know the moral about hygiene?</p>
     </div>
+
     <script>
         // Show card and poop emojis on button click
         document.getElementById('showCardBtn').onclick = function() {
@@ -119,6 +124,7 @@
                 poop.style.animationDelay = (Math.random() * 6) + 's';
                 poop.style.fontSize = (2 + Math.random() * 2) + 'em';
                 document.body.appendChild(poop);
+                
             }
         };
     </script>

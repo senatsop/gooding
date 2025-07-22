@@ -5,32 +5,122 @@
     <title>Karl is Stinky</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 40px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f7cac9 0%, #92a8d1 100%);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
         .container {
             background: #fff;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 32px 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.15);
             max-width: 500px;
-            margin: auto;
+            margin: 40px auto;
+            transition: box-shadow 0.3s;
+            z-index: 1;
+        }
+        .container:hover {
+            box-shadow: 0 12px 40px rgba(44,62,80,0.25);
         }
         h1 {
-            color: #333;
+            color: #355c7d;
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 1px 2px 8px #b8a9c9;
         }
         .stinky {
-            font-size: 1.2em;
+            font-size: 1.15em;
             color: #666;
-            margin-top: 16px;
+            margin-top: 18px;
+            line-height: 1.6;
+            background: #f7cac9;
+            padding: 12px 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(92,168,209,0.08);
+            transition: background 0.3s;
+        }
+        .stinky:hover {
+            background: #f3e1e7;
+        }
+        .fancy-btn {
+            display: block;
+            margin: 0 auto;
+            margin-top: 80px;
+            padding: 18px 38px;
+            font-size: 1.3em;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #fff;
+            background: linear-gradient(90deg, #355c7d 0%, #6c5b7b 100%);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            letter-spacing: 1px;
+            font-weight: 600;
+            outline: none;
+            position: relative;
+            z-index: 2;
+        }
+        .fancy-btn:hover {
+            background: linear-gradient(90deg, #6c5b7b 0%, #f7cac9 100%);
+            transform: scale(1.07);
+            box-shadow: 0 8px 32px rgba(44,62,80,0.25);
+        }
+        .poop {
+            position: absolute;
+            font-size: 2.5em;
+            pointer-events: none;
+            animation: float 6s linear infinite;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(1) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <button id="showCardBtn" class="fancy-btn">
+        Who is the stinkiest person alive?
+    </button>
+    <div class="container" id="stinkyCard" style="display:none;">
         <h1>Karl is Stinky</h1>
         <p class="stinky">Karl has been known for his stinky adventures. Whether it's after a long day or just because, Karl always manages to bring a unique aroma wherever he goes!</p>
     </div>
+    <script>
+        // Show card and poop emojis on button click
+        document.getElementById('showCardBtn').onclick = function() {
+            document.getElementById('stinkyCard').style.display = 'block';
+            this.style.display = 'none';
+            // Add floating poop emojis
+            const poopCount = 20;
+            for (let i = 0; i < poopCount; i++) {
+                const poop = document.createElement('div');
+                poop.className = 'poop';
+                poop.textContent = '💩';
+                poop.style.left = Math.random() * 90 + 'vw';
+                poop.style.animationDelay = (Math.random() * 6) + 's';
+                poop.style.fontSize = (2 + Math.random() * 2) + 'em';
+                document.body.appendChild(poop);
+            }
+        };
+    </script>
 </body>
 </html>
